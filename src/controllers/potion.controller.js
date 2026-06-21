@@ -1,5 +1,4 @@
-import { request } from "express";
-import Potion from "../models/Potion.js";
+import Potion from "../models/potion.js";
 
 async function findAll(req, res) {
     try {
