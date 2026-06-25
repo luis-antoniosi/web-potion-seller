@@ -1,43 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Potion Shop</title>
+    <title>Loja de Poções</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+    <audio autoplay loop id="music" src="assets/hip_shop.mp3"></audio>
     <header class="store-header">
         <div class="header-inner">
             <div class="header-name">
-                <h1>Merigold's Store</h1>
+                <h1>Loja Merigold</h1>
             </div>
             <nav class="header-nav">
-                <a href="#about">Sobre nós</a>
                 <a href="#history">Nossa história</a>
                 <a href="#potions">Poções</a>
                 <a href="#contact">Contato</a>
             </nav>
+            <span id="music-sound">🔊</span>
         </div>
     </header>
     <main>
         <section id="top" class="store-top">
             <div class="top-inner">
-                <p>gasdfasdf</p>
-                <h1>Brief history of the store</h1>
-                <p>Each potion is insanely good</p>
-                <a>See all potions!</a>
+                <p class="top-store-name">Loja Merigold, desde 1867</p>
+                <h1 class="top-store-text">Soluções simples feitas com amor e carinho<br>desde o século XIX.</h1>
+                <p class="top-potion-text">Cada frasco possui a sabedoria de seis gerações de bruxas!</p>
+                <a href="#potions">Veja todas as poções!</a>
             </div>
         </section>
-        <section id="about" class="store-about">
 
-        </section>
         <section id="history" class="store-history">
-
+            <div class="history-inner">
+                <h1 class="inner-name">Histórico da loja</h2>
+                    <ol class="timeline">
+                        <li class="timeline-item">
+                            <div class="timeline-photo">
+                                <img src="assets/store_1867.png" alt="Fachada da loja em 1867" />
+                                <span>1867</span>
+                            </div>
+                            <div class="timeline-text">
+                                <h2>O início</h2>
+                                <p>Ano de fundação da loja, fazia parte de uma mansão que se movia constantemente... Era
+                                    meio complicado ter clientes fiéis.</p>
+                            </div>
+                        </li>
+                        <li class="timeline-item reverse">
+                            <div class="timeline-photo">
+                                <img src="assets/store_1986.png" alt="Fachada da loja em 1986" />
+                                <span>1986</span>
+                            </div>
+                            <div class="timeline-text">
+                                <h2>Imprevistos</h2>
+                                <p>Época consideravelmente complicada. Nossa loja ficava em uma ilha chamada de
+                                    Rokkenjima e
+                                    tínhamos que dividir espaço com uma tal de "bruxa dourada". Nossas poções ajudavam
+                                    contra o medo das maldições dela.</p>
+                            </div>
+                        </li>
+                        <li class="timeline-item">
+                            <div class="timeline-photo">
+                                <img src="assets/store_2026.jpg" alt="Fachada da loja em 2026" />
+                                <span>2026</span>
+                            </div>
+                            <div class="timeline-text">
+                                <h2>Estabilidade</h2>
+                                <p>No momento, estamos em um lugar que previamente era um laboratório. Fácil de achar, e
+                                    até
+                                    que temático em relação ao produto de venda da nossa loja. Eu, Anabelle Merigold,
+                                    sou quem cuida desse lugar!</p>
+                            </div>
+                        </li>
+                    </ol>
+            </div>
         </section>
+
         <section id="potions" class="store-potions">
             <div class="potions-inner">
-                <h1 class="potions-inner-name">Poções</h1>
+                <h1 class="inner-name">Poções</h1>
                 <div id="potionsGrid" class="potions-grid"></div>
             </div>
         </section>
@@ -45,15 +88,15 @@
     <footer id="contact" class="store-contact">
         <div class="footer-inner">
             <div class="footer-brand">
-                <span class="brand-name">Merigold's Store</span>
+                <span class="brand-name">Loja Merigold</span>
                 <p>Vendendo poções desde 1867</p>
                 <div class="blinkies">
-                    <img class="blinkie" src="assets/bat_blinkie.gif" />
-                    <img class="blinkie" src="assets/comp_blinkie.gif" />
-                    <img class="blinkie" src="assets/ditto_blinkie.gif" />
-                    <img class="blinkie" src="assets/ghost_blinkie.gif" />
-                    <img class="blinkie" src="assets/triple_blinkie.gif" />
-                    <img class="blinkie" src="assets/eek_blinkie.gif" />
+                    <img class="blinkie" src="assets/blinkies/bat_blinkie.gif" />
+                    <img class="blinkie" src="assets/blinkies/comp_blinkie.gif" />
+                    <img class="blinkie" src="assets/blinkies/ditto_blinkie.gif" />
+                    <img class="blinkie" src="assets/blinkies/ghost_blinkie.gif" />
+                    <img class="blinkie" src="assets/blinkies/triple_blinkie.gif" />
+                    <img class="blinkie" src="assets/blinkies/eek_blinkie.gif" />
                 </div>
             </div>
             <div class="footer-contact">

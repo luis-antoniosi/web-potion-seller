@@ -1,17 +1,26 @@
 const potionsGrid = document.getElementById("potionsGrid");
+const music = document.getElementById("music");
+const musicMute = document.getElementById("music-sound");
+
+const API_URL = "http://127.0.0.1:8080/potions";
 
 async function getPotions() {
     try {
-        const response = await fetch("http://127.0.0.1:8080/potions",
-            {
-                method: "GET"
-            });
+        const response = await fetch(API_URL,
+            { method: "GET" }
+        );
 
         if (!response.ok)
             throw new Error("Fetch error, status: " + response.status);
 
-        const data = await response.json();
-        return data;
+        const potions = await response.json();
+
+        if (potions.length === 0) {
+            // todo
+            return;
+        }
+
+        return potions;
     } catch (error) {
         console.error("Failed to get potions: " + error);
     }
@@ -20,7 +29,7 @@ async function getPotions() {
 function createPotionCard(potion) {
     const potionCard = document.createElement("div");
     potionCard.className = "potion-card";
-    
+
     const potionName = document.createElement("h2");
     potionName.className = "potion-name";
     potionName.textContent = potion.name;
@@ -32,12 +41,18 @@ function createPotionCard(potion) {
     const potionImg = document.createElement("img");
     potionImg.className = "potion-img";
     potionImg.src = potion.photo;
+    potionImg.alt = potion.name;
 
     const potionPrice = document.createElement("span");
     potionPrice.className = "potion-price";
     potionPrice.textContent = "R$ " + (potion.price).toFixed(2);
 
-    potionCard.append(potionName, potionDesc, potionPrice, potionImg);
+    const potionBtn = document.createElement("button");
+    potionBtn.className = "potion-btn";
+    potionBtn.type = "button";
+    potionBtn.textContent = "Comprar";
+
+    potionCard.append(potionName, potionDesc, potionPrice, potionImg, potionBtn);
 
     return potionCard;
 }
@@ -58,3 +73,17 @@ function createPotionCard(potion) {
     }
 
 })();
+
+document.body.addEventListener("click", () => {
+    music.play();
+    music.volume = 0.05;
+});
+
+musicMute.addEventListener("click", () => {
+    if (!music.muted)
+        musicMute.innerText = "🔇";
+    else
+        musicMute.innerText = "🔊";
+
+    music.muted = !music.muted;
+});
