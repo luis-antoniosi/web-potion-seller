@@ -1,10 +1,14 @@
 const potionsGrid = document.getElementById("potionsGrid");
+const listStatus =  document.getElementById("listStatus");
 const music = document.getElementById("music");
 const musicMute = document.getElementById("music-sound");
 
 const API_URL = "http://127.0.0.1:8080/potions";
 
 async function getPotions() {
+    listStatus.textContent = "Abrindo o livro de poções...";
+    potionsGrid.innerHTML = "";
+
     try {
         const response = await fetch(API_URL,
             { method: "GET" }
@@ -16,13 +20,15 @@ async function getPotions() {
         const potions = await response.json();
 
         if (potions.length === 0) {
-            // todo
+            listStatus.textContent = "Nenhuma poção cadastrada.";
             return;
         }
 
+        listStatus.textContent = "";
         return potions;
     } catch (error) {
         console.error("Failed to get potions: " + error);
+        listStatus.textContent = "Não foi possível carregar as poções cadastradas.";
     }
 }
 
@@ -60,7 +66,6 @@ function createPotionCard(potion) {
 (async () => {
     try {
         const potions = await getPotions();
-        console.log(potions);
 
         potions.forEach((potion) => {
             const card = createPotionCard(potion);
@@ -69,7 +74,7 @@ function createPotionCard(potion) {
         });
 
     } catch (error) {
-        console.log("Process of creating elements failed.");
+        console.error("Process of creating elements failed.");
     }
 
 })();

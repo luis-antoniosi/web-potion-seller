@@ -79,13 +79,6 @@
     max-width: 70rem;
 }
 
-.list-status {
-    font-style: italic;
-    color: var(--light-text);
-    min-height: 1.4em;
-    margin-bottom: 1rem;
-}
-
 .potion-list {
     display: flex;
     flex-direction: column;
