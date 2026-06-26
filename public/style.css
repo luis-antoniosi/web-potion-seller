@@ -24,7 +24,6 @@ body {
 }
 
 body {
-    background: linear-gradient(to top, var(--body-bg), transparent), url(assets/star.gif);
     color: var(--light-text);
     display: flex;
     flex-direction: column;
@@ -50,7 +49,7 @@ a {
 .inner-name {
     display: flex;
     justify-content: center;
-    margin: 1rem;
+    padding: 1rem;
 }
 
 /* Header */
@@ -83,6 +82,13 @@ a {
 #music-sound {
     position: absolute;
     right: 4rem;
+    background: gold;
+    padding: 0.3rem;
+    border-radius: 10px;
+}
+
+#music-sound:hover {
+    background: goldenrod;
 }
 
 /* Top */
@@ -130,7 +136,13 @@ a {
 
 .store-history {
     border-bottom: 1px solid gold;
+    height: fit-content;
     margin: 0 auto;
+    background: url("assets/star.gif");
+}
+
+.history-inner {
+    padding: 1rem 0;
 }
 
 .timeline {
@@ -190,14 +202,18 @@ a {
 
 /* Potion grid */
 
+.store-potions {
+    background: linear-gradient(to top, var(--body-bg), transparent), url(assets/star.gif);
+}
+
 .potions-inner {
     text-align: center;
+    padding-bottom: 2rem;
 }
 
 .list-status {
     font-style: italic;
     color: var(--light-text);
-    min-height: 1.4em;
     margin-bottom: 1rem;
     font-size: 1.3rem;
 }
@@ -206,7 +222,7 @@ a {
     display: grid;
     width: auto;
     max-width: 64rem;
-    margin: 2rem auto;
+    margin: 0 auto;
     grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
     gap: 2rem;
     justify-items: center;
@@ -225,8 +241,7 @@ a {
     padding: 1rem;
     gap: 1rem;
     box-shadow: 0em 0em 1em 0.5em rgba(255, 217, 0, 0.308);
-    /* filter: drop-shadow(1em 1em rgba(255, 217, 0, 0.308));  */
-
+    
     flex-direction: column;
     overflow: hidden;
 }
@@ -345,5 +360,17 @@ a {
 
     .footer-admin {
         text-align: left;
+    }
+
+    .timeline-item {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item.reverse {
+        direction: ltr;
+    }
+
+    .timeline-photo {
+        max-width: 100%;
     }
 }

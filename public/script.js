@@ -1,9 +1,11 @@
 const potionsGrid = document.getElementById("potionsGrid");
-const listStatus =  document.getElementById("listStatus");
+const listStatus = document.getElementById("listStatus");
 const music = document.getElementById("music");
 const musicMute = document.getElementById("music-sound");
 
 const API_URL = "http://127.0.0.1:8080/potions";
+
+let musicPlaying = false;
 
 async function getPotions() {
     listStatus.textContent = "Abrindo o livro de poções...";
@@ -79,16 +81,17 @@ function createPotionCard(potion) {
 
 })();
 
-document.body.addEventListener("click", () => {
-    music.play();
-    music.volume = 0.05;
-});
-
 musicMute.addEventListener("click", () => {
-    if (!music.muted)
-        musicMute.innerText = "🔇";
-    else
-        musicMute.innerText = "🔊";
+    music.volume = 0.05;
 
-    music.muted = !music.muted;
+    if (musicPlaying) {
+        musicMute.innerText = "🔇";
+        music.pause();
+        musicPlaying = false;
+    }
+    else {
+        musicMute.innerText = "🔊";
+        music.play();
+        musicPlaying = true;
+    }
 });

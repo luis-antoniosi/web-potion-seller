@@ -3,6 +3,10 @@
     --strong-wine: #921624;
 }
 
+body {
+    background: linear-gradient(to top, var(--body-bg), transparent), url(assets/star.gif);
+}
+
 .panel {
     margin: 3rem auto;
     text-align: center;
